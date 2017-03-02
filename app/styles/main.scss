@@ -1,0 +1,22 @@
+body {
+  margin: 20px;
+  color: #FFF;
+  background-color: #000;
+}
+
+.photo-gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.photo-gallery__image-wrapper {
+  // Fit the given space
+  flex-grow: 1;
+}
+
+.photo-gallery__image {
+  display: block;
+  // Some of the image preview will be cut but will fill space.
+  object-fit: cover;
+  min-width: 100%
+}
