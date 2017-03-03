@@ -1,0 +1,34 @@
+@import "base";
+
+.image-gallery__images-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.image-gallery__image-wrapper {
+  // Fit the given space
+  flex-grow: 1;
+}
+
+.image-gallery__image {
+  display: block;
+  // Some of the image preview will be cut but will fill space.
+  object-fit: cover;
+  min-width: 100%
+}
+
+.image-gallery__add-more-wrapper {
+  margin: auto;
+  text-align: center;
+  padding: 5px;
+  margin: 20px;
+}
+
+.image-gallery__add-more {
+  border: 2px solid $color-main;
+  color: $color-main;
+  font-weight: bold;
+  font-size: 2em;
+  padding: 5px;
+  margin: 5px;
+}

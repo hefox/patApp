@@ -1,0 +1,48 @@
+@import "base";
+
+.image-gallery__modal-controls {
+  position: fixed;
+  padding: 20px;
+  right: 0px;
+  top: 0px;
+  font-weight: bold;
+}
+
+.image-gallery__modal-control {
+  color: $color-opposite;
+}
+
+.image-gallery__modal-control--close {
+  padding-left: 20px;
+}
+
+/* The Modal (background) */
+.image-gallery__modal-wrapper {
+  position: fixed;
+  z-index: 100;
+  padding: 0px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  color: $color-opposite;
+  background-color: $color-main;
+  background-color: rgba($color-main, 0.8);
+}
+
+.image-gallery__modal-image-wrapper {
+  padding: 20px;
+}
+
+/* Modal Content (image) */
+.image-gallery__modal-image {
+  margin: auto;
+  display: block;
+  max-width: 80%;
+}
+
+.image-gallery__modal-image-caption {
+  text-align: center;
+  padding: 10px;
+}

@@ -11,7 +11,7 @@ function ImageModal(parentElement) {
   this.parentElement = parentElement;
   this.element = this.createModalElement();
   this.parentElement.appendChild(this.element);
-  this.elementClass = 'photo-gallery__modal-wrapper';
+  this.elementClass = 'image-gallery__modal-wrapper';
 }
 
 /**
@@ -23,16 +23,16 @@ function ImageModal(parentElement) {
  */
 ImageModal.prototype.displayImage = function(image) {
   var that = this;
-  var caption = this.element.getElementsByClassName('photo-gallery__modal-image-caption')[0];
+  var caption = this.element.getElementsByClassName('image-gallery__modal-image-caption')[0];
   // Service does not provide title, display slug instead.
   caption.innerHTML = image.slug || 'No Caption';
-  var wrapper = this.element.getElementsByClassName('photo-gallery__modal-image-wrapper')[0];
+  var wrapper = this.element.getElementsByClassName('image-gallery__modal-image-wrapper')[0];
   var img = document.createElement('img');
   var imageToDisplay = image.images['original'];
   img.src = imageToDisplay.url;
   img.width = imageToDisplay.width;
   img.height = imageToDisplay.height;
-  img.className = 'photo-gallery__modal-image';
+  img.className = 'image-gallery__modal-image';
   // Add or replace image.
   if (this.img) {
     wrapper.replaceChild(img, this.img);
@@ -45,7 +45,7 @@ ImageModal.prototype.displayImage = function(image) {
 
   // Update the next/previous links.
   function updateImageNavigationLink(text) {
-    var ele = that.element.getElementsByClassName('photo-gallery__modal-control--' + text)[0];
+    var ele = that.element.getElementsByClassName('image-gallery__modal-control--' + text)[0];
     if (!ele) {
       throw 'Unable to find ' + text + ' link';
     }
@@ -79,18 +79,18 @@ ImageModal.prototype.createModalElement = function() {
   var that = this;
   var child = document.createElement('div');
   child.style.display = 'none';
-  child.className = 'photo-gallery__modal-wrapper';
-  child.innerHTML = '<div class="photo-gallery__modal-controls">' +
-      '<a href="#" class="photo-gallery__modal-control photo-gallery__modal-control--prev" title="Previous Image">&#60;&#60; </a> ' +
-      '<a href="#" class="photo-gallery__modal-control photo-gallery__modal-control--next" title="Next Image">&#62;&#62; </a> ' +
-      '<a href="#" class="photo-gallery__modal-control photo-gallery__modal-control--close" title="Close Image"> × </a>' +
+  child.className = 'image-gallery__modal-wrapper';
+  child.innerHTML = '<div class="image-gallery__modal-controls">' +
+      '<a href="#" class="image-gallery__modal-control image-gallery__modal-control--prev" title="Previous Image">&#60;&#60; </a> ' +
+      '<a href="#" class="image-gallery__modal-control image-gallery__modal-control--next" title="Next Image">&#62;&#62; </a> ' +
+      '<a href="#" class="image-gallery__modal-control image-gallery__modal-control--close" title="Close Image"> × </a>' +
     '</div>' +
-    '<div class="photo-gallery__modal-content">' +
-      '<div class="photo-gallery__modal-image-wrapper">' +
-        '<div class="photo-gallery__modal-image-caption"></div>' +
+    '<div class="image-gallery__modal-content">' +
+      '<div class="image-gallery__modal-image-wrapper">' +
+        '<div class="image-gallery__modal-image-caption"></div>' +
       '</div>' +
     '</div>';
-  var span = child.getElementsByClassName('photo-gallery__modal-control--close')[0];
+  var span = child.getElementsByClassName('image-gallery__modal-control--close')[0];
   span.onclick = function(event) {
     event.preventDefault();
     that.closeModal();
@@ -101,11 +101,11 @@ ImageModal.prototype.createModalElement = function() {
   document.onkeydown = function(event) {
     switch(event.which || event.keyCode) {
         case 37: // left arrow key
-        child.getElementsByClassName('photo-gallery__modal-control--prev')[0].click();
+        child.getElementsByClassName('image-gallery__modal-control--prev')[0].click();
         break;
 
         case 39: // right arrow key
-        child.getElementsByClassName('photo-gallery__modal-control--next')[0].click();
+        child.getElementsByClassName('image-gallery__modal-control--next')[0].click();
         break;
     }
   };

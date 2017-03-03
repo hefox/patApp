@@ -75,12 +75,12 @@ ImageGallery.prototype.addImages = function(offset) {
 ImageGallery.prototype.createImageElement = function(image) {
   var that = this;
   var child = document.createElement('div');
-  child.className = 'photo-gallery__image-wrapper';
+  child.className = 'image-gallery__image-wrapper';
   // Lots of choices for preview, set it to var to change easily.
   var preview = image.images['fixed_height_downsampled'];
   var a = document.createElement('a');
   child.appendChild(a);
-  a.className = 'photo-gallery__image-link';
+  a.className = 'image-gallery__image-link';
   a.href = image['bitly_url'];
   // On click, display image in modal.
   a.onclick = function(event) {
@@ -93,7 +93,7 @@ ImageGallery.prototype.createImageElement = function(image) {
   img.width = preview.width;
   img.height = preview.height;
   img.src = preview.url;
-  img.className = 'photo-gallery__image';
+  img.className = 'image-gallery__image';
   return child;
 };
 
@@ -102,7 +102,7 @@ ImageGallery.prototype.createImageElement = function(image) {
  */
 ImageGallery.prototype.createImagesWrapperElement = function() {
   var child = document.createElement('div');
-  child.className = 'photo-gallery__images-wrapper';
+  child.className = 'image-gallery__images-wrapper';
   return child;
 };
 
@@ -112,9 +112,9 @@ ImageGallery.prototype.createImagesWrapperElement = function() {
 ImageGallery.prototype.createAddMoreLinkElement = function() {
   var that = this;
   var child = document.createElement('div');
-  child.className = 'photo-gallery__add-more-wrapper';
+  child.className = 'image-gallery__add-more-wrapper';
   var a = document.createElement('a');
-  a.className = 'photo-gallery__add-more';
+  a.className = 'image-gallery__add-more';
   a.href = '#';
   a.innerHTML = 'More!';
   // Onclick, fetch more images.
