@@ -2,6 +2,7 @@ body {
   margin: 20px;
   color: #FFF;
   background-color: #000;
+  font-family: Arial;
 }
 
 a {
@@ -50,8 +51,11 @@ a {
 }
 
 .photo-gallery__modal-control {
-  text-decoration: none;
   color: #000;
+}
+
+.photo-gallery__modal-control--close {
+  padding-left: 20px;
 }
 
 /* The Modal (background) */
@@ -81,8 +85,6 @@ a {
 }
 
 .photo-gallery__modal-image-caption {
-  margin: auto;
-  display: block;
   text-align: center;
   padding: 10px;
 }
