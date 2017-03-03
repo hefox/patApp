@@ -37,7 +37,6 @@ ImageModal.prototype.displayImage = function(image) {
   this.element.style.display = 'block';
   var prev = this.element.getElementsByClassName('photo-gallery__modal-control--prev')[0];
   var next = this.element.getElementsByClassName('photo-gallery__modal-control--next')[0];
-  console.log(image);
   if (image.prev) {
     prev.style.display = 'inline';
     prev.onclick = function(event) {

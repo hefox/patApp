@@ -11,9 +11,16 @@ function ImageService() {
 }
 
 /**
- * @return An promise that will resolve into array of images.
+ * @param searchTerm
+ *  What term to search for
+ * @param opts
+ *  Additional options
+ *   offset: what offset to pass url.
+ * @return An promise that will resolve into json respone, including images.
+ *  data: array of images
+ *  pagination: contains current offset, count, and total_count
  */
-ImageService.prototype.getImages = function (searchTerm) {
+ImageService.prototype.getImages = function (searchTerm, opts) {
   var that = this;
   var promise = new Promise(function(resolve, reject) {
     if (!patAppConfig.giphyKey) {
@@ -27,14 +34,18 @@ ImageService.prototype.getImages = function (searchTerm) {
           reject('Unable to parse data.');
         }
         else {
-          resolve(parsedResponse.data);
+          resolve(parsedResponse);
         }
       }
       else if (this.readyState === 4) {
         reject('Call returned with code ' + this.status);
       }
     };
-    xhttp.open('GET', that.url + '?api_key=' + patAppConfig.giphyKey + '&q=' + searchTerm, true);
+    var url = that.url + '?api_key=' + patAppConfig.giphyKey + '&q=' + searchTerm;
+    if (opts.offset) {
+      url += '&offset=' + opts.offset;
+    }
+    xhttp.open('GET', url, true);
     xhttp.send();
   });
   return promise;
