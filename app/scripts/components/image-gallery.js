@@ -116,7 +116,7 @@ ImageGallery.prototype.createAddMoreLinkElement = function() {
   var a = document.createElement('a');
   a.className = 'image-gallery__add-more';
   a.href = '#';
-  a.innerHTML = 'More!';
+  a.innerHTML = 'More';
   // Onclick, fetch more images.
   a.onclick = function(event) {
     event.preventDefault();

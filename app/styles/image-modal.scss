@@ -42,7 +42,15 @@
   max-width: 80%;
 }
 
-.image-gallery__modal-image-caption {
+.image-gallery__modal-image-caption-wrapper {
   text-align: center;
-  padding: 10px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.image-gallery__modal-image-caption {
+  display: inline;
+  padding: 5px;
+  color: $color-opposite;
+  background-color: $color-main;
 }

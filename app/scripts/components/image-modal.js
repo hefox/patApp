@@ -23,9 +23,10 @@ function ImageModal(parentElement) {
  */
 ImageModal.prototype.displayImage = function(image) {
   var that = this;
-  var caption = this.element.getElementsByClassName('image-gallery__modal-image-caption')[0];
+  var caption = this.element.getElementsByClassName('image-gallery__modal-image-caption-wrapper')[0];
+  var captionInner = caption.getElementsByClassName('image-gallery__modal-image-caption')[0];
   // Service does not provide title, display slug instead.
-  caption.innerHTML = image.slug || 'No Caption';
+  captionInner.innerHTML = image.slug || 'No Caption';
   var wrapper = this.element.getElementsByClassName('image-gallery__modal-image-wrapper')[0];
   var img = document.createElement('img');
   var imageToDisplay = image.images['original'];
@@ -87,7 +88,9 @@ ImageModal.prototype.createModalElement = function() {
     '</div>' +
     '<div class="image-gallery__modal-content">' +
       '<div class="image-gallery__modal-image-wrapper">' +
-        '<div class="image-gallery__modal-image-caption"></div>' +
+        '<div class="image-gallery__modal-image-caption-wrapper">' +
+          '<p class="image-gallery__modal-image-caption"></p>' +
+          '</div>' +
       '</div>' +
     '</div>';
   var span = child.getElementsByClassName('image-gallery__modal-control--close')[0];
