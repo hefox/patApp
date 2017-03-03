@@ -15,3 +15,11 @@ Run `grunt serve` to view a local site
 
 Run `grunt build` to get a build of html/css/js and a ready to deploy 'dist' folder will be created.
 
+## Some ideas for next step in this project
+
+* Input field to get search term from
+* Provide multiple sources like google search. This likely involve reformatting returned images so consistent format from both services.
+* an Image class with image specific functionality.
+* Display image in Lightbox based on browser current size.
+* Update url on image click so can link to current gif (e.g. use history)
+* Tests
