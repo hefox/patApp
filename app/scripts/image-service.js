@@ -7,7 +7,7 @@
 
  /*exported ImageService */
 function ImageService() {
-  this.url = 'http://api.giphy.com/v1/gifs/search';
+  this.url = 'https://api.giphy.com/v1/gifs/search';
 }
 
 /**
