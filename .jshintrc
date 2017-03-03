@@ -13,6 +13,7 @@
   "sub": true,
   "globals": {
     "patAppConfig": true,
-    "ImageService": true
+    "ImageService": true,
+    "ImageModal": true
   }
 }
