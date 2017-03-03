@@ -51,12 +51,16 @@ ImageGallery.prototype.addImages = function(offset) {
     that.pagination = data.pagination;
     var images = data.data;
     // Add images to markup.
+    // Update next link for last element of current images.
+    if (that.images.length && images.length) {
+      that.images[that.images.length - 1].next = images[0];
+    }
     for (var key = 0; key < images.length; key++) {
       // Store references to prev/next images.
-      images[key].prev = images[key - 1] || null;
+      images[key].prev = that.images[that.images.length - 1] || null;
       images[key].next = images[key + 1] || null;
       that.imagesWrapper.appendChild(that.createImageElement(images[key]));
-      that.images.push(that.images[key]);
+      that.images.push(images[key]);
     }
     // Remove link if gotten all.
     if (that.pagination['total_count'] <= that.pagination.offset + that.pagination.count) {
